@@ -119,3 +119,59 @@
                 errorEl.style.color = '#dc3545';
             }, 3000);
         }
+
+
+
+
+
+
+
+
+
+// Source Code Disable
+
+// Right-Click Disable
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault(); // Yeh right-click menu ko display hone se rokta hai
+});
+
+// Keyboard Shortcuts Disable
+document.addEventListener('keydown', function(e) {
+    // Ctrl+U / Cmd+U (Source code)
+    if (e.ctrlKey && e.keyCode === 85) { // 'U' key code is 85
+        e.preventDefault();
+    }
+    
+    // F12 (Developer Tools)
+    if (e.keyCode === 123) { // F12 key code is 123
+        e.preventDefault();
+    }
+});
+
+//////// All Keys
+document.onkeydown = function(e) {
+    // 1. F12 (Key code 123)
+    if (e.keyCode == 123) {
+        return false;
+    }
+
+    // 2. Ctrl + Shift + I 
+    // 'I' key code is 73
+    // 'J' key code is 74 (often used for Dev Tools on some systems)
+    // 'C' key code is 67 (often used for Dev Tools 'Inspect Element' on some systems)
+    if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+        return false;
+    }
+    
+    // 3. Ctrl + U (View Source)
+    // 'U' key code is 85
+    if (e.ctrlKey && e.keyCode === 85) {
+        return false;
+    }
+};
+
+// Also keep the right-click block for completeness
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
